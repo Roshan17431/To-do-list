@@ -20,3 +20,8 @@ const clock = document.getElementById('clock');
 
     updateDateTime();                 // initial display
     setInterval(updateDateTime, 60000)
+  
+document.addEventListener('DOMContentLoaded', () => {
+    const document.getElementById('input');
+    
+});

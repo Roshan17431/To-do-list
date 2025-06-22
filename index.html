@@ -13,17 +13,44 @@
             <h3>What's on your mind today?</h3>
             <p id="clock"></p>
         </div>
-        <div class="task">
-            
+        <div class="task">     
             <form class="form">
-                <input type="text" class="input" placeholder="Add a new task..." required>
+                <input type="text" class="input" id="input" placeholder="Add a new task..." required>
                 <button class="input" type="submit">+ Add</button>
             </form>
-            
+
+            <button class="all" id="line">All</button>
+            <button class="active" id="line">Active</button>
+            <button class="completed" id="line">Completed</button>
+            <span class="clear-all">🗑️ Clear All</span>
+        
         </div>
+        <hr>
+        <div class="task-list">
+            <!-- Empty icon 
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17 3H7a2 2 0 0 0-2 2v14l7-3 7 3V5a2 2 0 0 0-2-2z"/>
+            </svg>
+            -->
+            <ul id="list-container">
+                
+                <li class="checked"><p>Task 1</p>        <span>x</span></li>
+                <li><p>Task 2</p>       <span>x</span></li>
+                <li><p>Task 3</p>        <span>x</span></li>
+            </ul>
+        <!--
+            <div class="empty-heading">No tasks yet</div>
+            <div class="empty-sub">Add a task to get started</div>
+        -->
+        </div>
+        <footer class="stats">
+            <span>0 Total</span>
+            <span>0 Completed</span>
+            <span>0 Remaining</span>
+        </footer>
         
     </div>
-    
+
 
     <script src="td.js"></script>
 </body>
