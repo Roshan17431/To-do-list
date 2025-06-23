@@ -67,7 +67,7 @@ body{
     background-color: #fff;
     border-radius: 15px;
 }
-#line{
+.line{
     padding: 10px 15px;
     font-size: 0.8rem;
     font-weight: bold;
@@ -78,8 +78,12 @@ body{
     cursor: pointer;
     margin-left: 10px; 
 }
-#line:hover{
+.line:hover{
     background-color: #d1d5db;
+}
+.line.active{
+    background-color: rgb(87, 137, 243);
+    color: #fff;
 }
 
 .clear-all{
