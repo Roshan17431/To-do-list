@@ -15,29 +15,31 @@
         </div>
         <div class="task">     
             <form class="form">
-                <input type="text" class="input" id="input" placeholder="Add a new task..." required>
-                <button class="input" type="submit">+ Add</button>
+                <input type="text" class="input" id="input-box" placeholder="Add a new task..." required>
+                <button onclick="addTask()" class="input" type="submit">+ Add</button>
             </form>
 
-            <button class="all" id="line">All</button>
-            <button class="active" id="line">Active</button>
-            <button class="completed" id="line">Completed</button>
-            <span class="clear-all">🗑️ Clear All</span>
+            <button onclick="all()" class="all" id="line" >All</button>
+            <button onclick="active()" class="active" id="line">Active</button>
+            <button onclick="completed()" class="completed" id="line">Completed</button>
+            <span onclick="clearTask()" class="clear-all">🗑️ Clear All</span>
         
         </div>
         <hr>
         <div class="task-list">
+            
+            <ul id="list-container">
+                
+            <!--   <li class="checked"><p>Task 1</p>        <span>x</span></li>
+                <li><p>Task 2</p>       <span>x</span></li>
+                <li><p>Task 3</p>        <span>x</span></li> 
+            --> 
+            </ul>
             <!-- Empty icon 
             <svg fill="currentColor" viewBox="0 0 24 24">
               <path d="M17 3H7a2 2 0 0 0-2 2v14l7-3 7 3V5a2 2 0 0 0-2-2z"/>
             </svg>
             -->
-            <ul id="list-container">
-                
-                <li class="checked"><p>Task 1</p>        <span>x</span></li>
-                <li><p>Task 2</p>       <span>x</span></li>
-                <li><p>Task 3</p>        <span>x</span></li>
-            </ul>
         <!--
             <div class="empty-heading">No tasks yet</div>
             <div class="empty-sub">Add a task to get started</div>
