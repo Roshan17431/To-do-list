@@ -34,7 +34,7 @@ const listContainer = document.getElementById('list-container');
     
         let span = document.createElement('span');
         span.innerHTML = '\u00D7'; // × delete icon
-        span.classList.add('delete-btn'); // Optional class for styling
+        span.classList.add('delete-btn'); 
     
         p.appendChild(span);   // Add span to <p>
         li.appendChild(p);     // Add <p> to <li>
@@ -49,33 +49,53 @@ const listContainer = document.getElementById('list-container');
       localStorage.removeItem('data'); // Clear saved tasks from localStorage
     }
     function all(){
-      const tasks = listContainer.querySelectorAll('li');
-      tasks.forEach(task => {
-        task.style.display = 'block'; // Show all tasks
-      });
-    }
-    
-
-    function active(){
-      const tasks = listContainer.querySelectorAll('li');
-      tasks.forEach(task => {
-        if (!task.classList.contains('checked')) {
-          task.style.display = 'block'; // Show active tasks
-        } else {
-          task.style.display = 'none'; // Hide completed tasks
+      const items = document.querySelectorAll('li');
+      items.forEach(item => {
+        if(item.classList.contains('checked')) {
+          item.classList.remove('checked');
         }
       });
+      setActiveButton('all');
     }
     function completed(){
-      const tasks = listContainer.querySelectorAll('li');
-      tasks.forEach(task => {
-        if (task.classList.contains('checked')) {
-          task.style.display = 'block'; // Show completed tasks
-        } else {
-          task.style.display = 'none'; // Hide active tasks
+      const items = document.querySelectorAll('li');
+      items.forEach(item => {
+        if(!item.classList.contains('checked')) {
+          item.style.display = 'none';
+        }
+        else {
+          item.style.display = 'block';
         }
       });
+      setActiveButton('completed');
     }
+    function active(){
+      const items = document.querySelectorAll('li');
+      items.forEach(item => {
+        if(item.classList.contains('checked')) {
+          item.style.display = 'none';
+        }
+        else {
+          item.style.display = 'block';
+        }
+      });
+      setActiveButton('active');
+    }
+    function setActiveButton(type) {
+      const buttons = document.querySelectorAll('.line');
+      buttons.forEach(btn => btn.classList.remove('active'));
+    
+      if (type === 'all'){
+         document.querySelector('button[onclick="all()"]').classList.add('active');
+      }
+      else if (type === 'active'){
+        document.querySelector('button[onclick="active()"]').classList.add('active');
+      }
+      else if (type === 'completed'){
+        document.querySelector('button[onclick="completed()"]').classList.add('active');
+      }
+    }
+    
 
     listContainer.addEventListener('click', function(e) {
         if(e.target.tagName === 'LI' ){
