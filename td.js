@@ -47,40 +47,64 @@ const listContainer = document.getElementById('list-container');
     function clearTask(){
       listContainer.remove();
       localStorage.removeItem('data'); // Clear saved tasks from localStorage
+      count1 = 0;
+      count2 = 0;
+      count3 = 0;
+      showCount();
     }
+
+    // Filter tasks
+    let count1 = 0;
+    let count2 = 0;
+    let count3 = 0;
+
     function all(){
       const items = document.querySelectorAll('li');
+      count1 = items.length;
+      count2 = document.querySelectorAll('li.checked').length;
+      count3 = count1 - count2
       items.forEach(item => {
-        if(item.classList.contains('checked')) {
-          item.classList.remove('checked');
-        }
+        item.style.display = 'flex'; 
       });
       setActiveButton('all');
+      showCount();
     }
     function completed(){
       const items = document.querySelectorAll('li');
+      count2 = 0;
       items.forEach(item => {
         if(!item.classList.contains('checked')) {
           item.style.display = 'none';
         }
         else {
-          item.style.display = 'block';
+          item.style.display = 'flex';
+          count2++;
         }
       });
+      count1 = items.length;
+      count3 = count1 - count2;
       setActiveButton('completed');
+      showCount();
     }
     function active(){
       const items = document.querySelectorAll('li');
+      count3 = 0;
       items.forEach(item => {
         if(item.classList.contains('checked')) {
           item.style.display = 'none';
         }
         else {
-          item.style.display = 'block';
+          item.style.display = 'flex';
+          count3++;
         }
       });
+      count1 = items.length;
+      count2 = count1 - count3;
+      
       setActiveButton('active');
+      showCount();
     }
+
     function setActiveButton(type) {
       const buttons = document.querySelectorAll('.line');
       buttons.forEach(btn => btn.classList.remove('active'));
@@ -101,10 +125,12 @@ const listContainer = document.getElementById('list-container');
         if(e.target.tagName === 'LI' ){
           e.target.classList.toggle('checked');
           saveData();
+          all(); // Refresh the task list
         }
         else if(e.target.tagName === 'SPAN') {
           e.target.parentElement.parentElement.remove(); 
           saveData();
+          all(); // Refresh the task list
         }
     },false);
 
@@ -122,3 +148,10 @@ const listContainer = document.getElementById('list-container');
       }
     }
     showTask();
+    // Show count of tasks
+    
+    function showCount() {
+      document.getElementById('cnt1').textContent = `${count1} Total`;
+      document.getElementById('cnt2').textContent = `${count2} Completed`;
+      document.getElementById('cnt3').textContent = `${count3} Active`;
+    }

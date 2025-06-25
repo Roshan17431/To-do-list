@@ -119,7 +119,7 @@ ul li {
 }
 
 ul li p{
-    margin-left: 35px; /* Ensure proper spacing for text */
+    margin-left: 35px; 
 }
 
 ul li::before {
@@ -166,6 +166,9 @@ ul li span {
     font-size: 18px;
     line-height: 40px;
     text-align: center;
+}
+.task1{
+    margin-right: 50px;
 }
 
 ul li span:hover {
