@@ -1,58 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
-    <link rel="stylesheet" href="td.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="todo">
-            <h1>My Task</h1>
-            <h3>What's on your mind today?</h3>
-            <p id="clock"></p>
-        </div>
-        <div class="task">     
-            <form class="form">
-                <input type="text" class="input" id="input-box" placeholder="Add a new task..." required>
-                <button onclick="addTask()" class="input" type="submit">+ Add</button>
-            </form>
-
-            <button onclick="all()"  class="line active" >All</button>
-            <button onclick="active()" class="line"  >Active</button>
-            <button onclick="completed()" class="line" >Completed</button>
-            <span onclick="clearTask()" class="clear-all">🗑️ Clear All</span>
-        
-        </div>
-        <hr>
-        <div class="task-list">
-            
-            <ul id="list-container">
-                
-            <!--   <li class="checked"><p>Task 1</p>        <span>x</span></li>
-                <li><p>Task 2</p>       <span>x</span></li>
-                <li><p>Task 3</p>        <span>x</span></li> 
-            --> 
-            </ul>
-            <!-- Empty icon 
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17 3H7a2 2 0 0 0-2 2v14l7-3 7 3V5a2 2 0 0 0-2-2z"/>
-            </svg>
-            -->
-        <!--
-            <div class="empty-heading">No tasks yet</div>
-            <div class="empty-sub">Add a task to get started</div>
-        -->
-        </div>
-        <footer class="stats">
-            <span id="cnt1">0 Total</span>
-            <span id="cnt2">0 Completed</span>
-            <span id="cnt3">0 Remaining</span>
-        </footer>
-        
+  <div class="container">
+    <div class="todo">
+      <h1>My Task</h1>
+      <h3>What's on your mind today?</h3>
+      <p id="clock"></p>
     </div>
 
+    <div class="task">     
+      <div class="form">
+        <input type="text" class="input" id="input-box" placeholder="Add a new task..." required>
+        <button onclick="addTask()" class="input" type="button">+ Add</button>
+      </div>
 
-    <script src="td.js"></script>
+      <button onclick="show()" class="line active">All</button>
+      <button onclick="active()" class="line">Active</button>
+      <button onclick="completed()" class="line">Completed</button>
+      <span onclick="clearTask()" class="clear-all">🗑️ Clear All</span>
+    </div>
+
+    <hr>
+
+    <div class="task-list">
+      <ul id="list-container">
+        <!-- Task items will go here -->
+      </ul>
+    </div>
+
+    <footer class="stats">
+      <span id="cnt1">0 Total</span>
+      <span id="cnt2">0 Completed</span>
+      <span id="cnt3">0 Active</span>
+    </footer>
+  </div>
+
+  <script src="index.js"></script>
 </body>
+</html>
